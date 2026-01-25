@@ -22,7 +22,7 @@ const Toggler = <T extends string>({
 }: TogglerProps<T>) => {
     const isSection = section === "movies";
     const [open, setOpen] = useState(false);
-    const activeOption = options.find((o) => o.value === active);
+    //const activeOption = options.find((o) => o.value === active);
 
   return (
     <div className="relative">
