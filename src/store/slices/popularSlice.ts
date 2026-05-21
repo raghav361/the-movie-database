@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Show, PopularCategory } from "../../types/popuplar";
+import { Show, PopularCategory } from "../../types/popular";
 
 interface PopularState {
   airing_today: Show[],

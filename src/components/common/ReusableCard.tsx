@@ -1,5 +1,5 @@
 import { Movie } from '../../types/trending';
-import { Show } from '../../types/popuplar';
+import { Show } from '../../types/popular';
 import RatingCircle from '../common/RatingCircle';
 
 type Props = {

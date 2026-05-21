@@ -11,7 +11,7 @@ import useTrendingMovies from "../hooks/useTrendingMovies";
 import usePopularShows from "../hooks/usePopularShows";
 
 import { trendingOptions, TrendingCategory, Movie } from "../types/trending";
-import { popularOptions, PopularCategory, Show } from "../types/popuplar";
+import { popularOptions, PopularCategory, Show } from "../types/popular";
 
 const LatestTrailers = lazy(() => import("../components/sections/LatestTrailers"));
 
