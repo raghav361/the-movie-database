@@ -21,6 +21,8 @@ interface ReusableSectionProps<TCategory extends string, TItem> {
   skeletonType?: "portrait" | "landscape";
 }
 
+const buildSkeletonKey = (index: number) => `skeleton-${index}`;
+
 function ReusableSection<TCategory extends string, TItem>({
   title,
   options,
@@ -57,9 +59,9 @@ function ReusableSection<TCategory extends string, TItem>({
         <div className={itemsClass}>
           {isLoading || items.length === 0
             ? contentToRender.map((_, i) => (
-               <SkeletonCard key={`skeleton-${i}`} variant={skeletonType} />
+                <SkeletonCard key={buildSkeletonKey(i)} variant={skeletonType} />
               ))
-            : (contentToRender as TItem[]).map((item: any) => renderItem(item))}
+            : (contentToRender as TItem[]).map((item) => renderItem(item))}
         </div>
       </div>
     </section>

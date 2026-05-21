@@ -3,13 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
 import API_OPTIONS from "../config";
 
+type CategoryActionCreator<TCategory extends string, TItem> = (
+  payload: { category: TCategory; items: TItem[] }
+) => unknown;
+
 /**
  * Generic hook for fetching and caching category-based data
  * (e.g. Trending movies, Popular shows)
  */
 export function useCategoryData<TCategory extends string, TItem>(
   sliceSelector: (state: RootState) => Record<TCategory, TItem[]>,
-  setAction: (payload: { category: TCategory; items: TItem[] }) => any,
+  setAction: CategoryActionCreator<TCategory, TItem>,
   endpointBase: string,
   activeCategory: TCategory
 ) {
@@ -41,7 +45,7 @@ export function useCategoryData<TCategory extends string, TItem>(
     fetchData();
 
     return () => controller.abort();
-  }, [activeCategory, dispatch, endpointBase, data]);
+  }, [activeCategory, dispatch, endpointBase, data, setAction]);
 
   return data;
 }
